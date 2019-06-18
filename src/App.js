@@ -1,10 +1,8 @@
-import React from 'react';
-import ProductList from "./components/product-list"
+import React from "react";
+import ProductList from "./components/product-list";
 
 function App() {
-  return (
-    <ProductList />
-  );
+  return <ProductList />;
 }
 
 export default App;
