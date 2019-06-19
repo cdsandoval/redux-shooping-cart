@@ -1,5 +1,5 @@
-import React from 'react';
-import CartItem from '../components/cart-item';
+import React from "react";
+import CartItem from "../components/cart-item";
 
 function Cart() {
   const list = [];

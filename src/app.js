@@ -1,8 +1,8 @@
 /**@jsx jsx */
-import React from 'react';
-import { jsx, Global } from '@emotion/core';
+import React from "react";
+import { jsx, Global } from "@emotion/core";
 // import CartView from './views/cart';
-import ProductList from './views/product-list';
+import ProductList from "./views/product-list";
 
 function App() {
   return (
@@ -11,9 +11,9 @@ function App() {
         styles={{
           body: {
             margin: 0,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center'
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
           }
         }}
       />
