@@ -69,7 +69,9 @@ const cart = [
 function CartItem() {
   const [value, setValue] = React.useState(cart);
 
-  function handleChange(e, id) {}
+  function handleChange(e, id) {
+    console.log(e.currentTarget.value);
+  }
 
   return (
     <>
@@ -83,7 +85,7 @@ function CartItem() {
               type="number"
               max={element.stock}
               min="0"
-              onChange={handleChange(element.id)}
+              onChange={e => handleChange(element.id)}
             />
             <span>{element.total}</span>
           </li>
