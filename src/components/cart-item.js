@@ -1,4 +1,6 @@
+/**@jsx jsx */
 import React from "react";
+import { jsx } from "@emotion/core";
 
 const cart = [
   {
@@ -74,24 +76,38 @@ function CartItem() {
   }
 
   return (
-    <>
+    <ul
+      css={{
+        listStyle: "none",
+        padding: 0,
+        margin: 0
+      }}
+    >
       {value.map(element => {
         return (
-          <li key={new Date()}>
+          <li
+            key={element.id}
+            css={{
+              marginBottom: "20px",
+              display: "flex",
+              justifyContent: "space-between"
+            }}
+          >
             <button>X</button>
-            <span>{element.name}</span>
-            <span>{element.price}</span>
+            <span css={{ width: "30%" }}>{element.name}</span>
+            <span css={{ width: "20%" }}>{element.price}</span>
             <input
               type="number"
               max={element.stock}
               min="0"
               onChange={e => handleChange(element.id)}
+              css={{ width: "10%" }}
             />
             <span>{element.total}</span>
           </li>
         );
       })}
-    </>
+    </ul>
   );
 }
 
