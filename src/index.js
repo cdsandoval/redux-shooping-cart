@@ -1,5 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import ProductDetail from "./views/product-detail";
+import { listProduct } from "./data/product-fake";
 
-ReactDOM.render(<ProductDetail />, document.getElementById("root"));
+const product = listProduct[0];
+console.log(product);
+
+ReactDOM.render(
+  <ProductDetail product={product} />,
+  document.getElementById("root")
+);
