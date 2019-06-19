@@ -15,7 +15,7 @@ function reducer(state = initialState, action = {}) {
         ...state,
         cart: {
           ...state.cart,
-          [action.payload.id]: action.payload
+          [action.payload.id]: action.payload.id
         }
       };
     }

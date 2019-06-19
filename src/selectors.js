@@ -5,4 +5,8 @@ function useTodos() {
   return useSelector(state => Object.values(state.products), shallowEqual);
 }
 
-export { useTodos };
+function useCart(){
+  return useSelector(state => Object.values(state.cart),shallowEqual);
+}
+
+export { useTodos,useCart };
