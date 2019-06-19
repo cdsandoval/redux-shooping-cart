@@ -1,19 +1,29 @@
+/** @jsx jsx */
 import React from "react";
+import { jsx } from "@emotion/core";
+import image from "../data/image.jpg";
 
-function ProductDetail() {
-  const product = {
-    name: "yogurt",
-    description: "litros",
-    price: 5,
-    quantity: 10
+function ProductDetail({ product }) {
+  const container = {
+    display: "flex"
   };
+  const labelStyle = { fontWeight: "bold" };
   return (
     <>
-      <h1>product Detail</h1>
-      <h1>{product.name}</h1>
-      <h1>{product.description}</h1>
-      <h1>{product.price}</h1>
-      <h1>{product.quantity}</h1>
+      <div css={container}>
+        <img src={image} alt="Image" />
+        <div>
+          <h3>Name: {product.name}</h3>
+          <h3>Brand: {product.brand}</h3>
+          <h3>Price: {product.price}</h3>
+          <h3>Stock: {product.stock}</h3>
+        </div>
+      </div>
+      <div>
+        <label css={labelStyle}>Quantity</label>
+        <input type="number" value="1" />
+        <button>Add cart</button>
+      </div>
     </>
   );
 }
