@@ -1,29 +1,23 @@
 /** @jsx jsx */
 import React from "react";
-import { useOnIncrement } from "../action-hooks";
 import { jsx } from "@emotion/core";
+import { useAdd } from "../action-hook";
 
-function Product({ id, name, price }) {
-  const onIncrement = useOnIncrement();
+function Product({ product }) {
+  const add = useAdd();
 
-  function handleClick() {
-    onIncrement(id);
+  function onClick() {
+    add(product.id);
   }
 
   return (
-    <li
-      key={id}
-      css={{
-        display: "flex",
-        justifyContent: "space-around",
-        marginBottom: "20px"
-      }}
-    >
-      <span css={{ width: "20%" }}>{name}</span>
-      <span css={{ width: "20%" }}>Price: {price}</span>
-      <span css={{ width: "20%" }}>Id: {id}</span>
-      <button onClick={handleClick}>Add</button>
-    </li>
+    <article css={{ display: "flex", justifyContent: "space-around" }}>
+      <span css={{ width: "40%" }}>{product.name}</span>
+      <span css={{ width: "20%" }}>{product.brand}</span>
+      <span css={{ width: "20%" }}>{product.price}</span>
+      <span css={{ width: "20%", textAlign: "center" }}>{product.stock}</span>
+      <button onClick={onClick}>ADD</button>
+    </article>
   );
 }
 

@@ -1,14 +1,24 @@
+/** @jsx jsx */
 import React from "react";
 import Product from "../components/product";
-import { listProduct } from "../data/product-fake";
+import { Link } from "@reach/router";
+import { useProducts, useCartLength } from "../selector";
+import { jsx } from "@emotion/core";
 
 function ProductList() {
+  const products = useProducts();
+  const cartList = useCartLength();
+
   return (
-    <>
-      {listProduct.map(p => (
-        <Product productName={p.name} price={p.price} />
+    <section css={{ width: "800px", marginTop: "50px" }}>
+      <p>{cartList}</p>
+      {products.map(product => (
+        <Product product={product} key={product.id} />
       ))}
-    </>
+      <Link to="cart">
+        <button>CART</button>
+      </Link>
+    </section>
   );
 }
 

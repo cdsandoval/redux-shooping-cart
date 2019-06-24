@@ -1,29 +1,33 @@
 import React from "react";
 import CartItem from "../components/cart-item";
+import { Link } from "@reach/router";
+import { useCart, useMixCart } from "../selector";
 
 function Cart() {
-  const list = [];
-  let finalTotal = 0;
-  const emptyMessage = <span>You don't have products added</span>;
+  const cart = useCart();
+  const mixProducts = useMixCart(cart);
+  const total = mixProducts.reduce((acc, value) => {
+    return acc + value.price * value.quantity;
+  }, 0);
+
+  console.log(total);
+  console.log(mixProducts);
   return (
     <div>
       <h1>List articles</h1>
-      {list.length === 0 ? (
-        emptyMessage
-      ) : (
-        <ul>
-          <li />
-          {list.map(article => {
-            finalTotal += article.price * article.quantity;
-            return <CartItem />;
-          })}
-        </ul>
-      )}
+
+      <ul>
+        {mixProducts.map(article => {
+          return <CartItem cart={article} />;
+        })}
+      </ul>
       <hr />
       <section>
-        <span>Total amount:</span>
-        <span>{finalTotal}</span>
+        <span>Total amount: {total}</span>
       </section>
+      <Link to="/">
+        <button>Home</button>
+      </Link>
     </div>
   );
 }
